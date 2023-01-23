@@ -1,80 +1,105 @@
-require ( './helpers.js' );
-
-describe('index.js', function () {
-  describe('cats', function () {
+describe("index.js", function () {
+  describe("drivers", function () {
     it('is assigned an initial value of ["Milo", "Otis", "Garfield"]', function () {
-      expect(cats).to.have.ordered.members(["Milo", "Otis", "Garfield"]);
+      expect(drivers).to.have.ordered.members(["Milo", "Otis", "Garfield"]);
     });
   });
 
-  describe('Array functions', function () {
+  describe("Array functions", function () {
     beforeEach(function () {
-      cats.length = 0;
+      drivers.length = 0;
 
-      cats.push('Milo', 'Otis', 'Garfield');
+      drivers.push("Milo", "Otis", "Garfield");
     });
 
-    describe('destructivelyAppendCat(name)', function () {
-      it('appends a cat to the end of the cats array', function () {
-        destructivelyAppendCat('Ralph');
+    describe("destructivelyAppendDriver(name)", function () {
+      it("appends a driver to the end of the drivers array", function () {
+        destructivelyAppendDriver("Ralph");
 
-        expect(cats).to.have.ordered.members(["Milo", "Otis", "Garfield", "Ralph"]);
+        expect(drivers).to.have.ordered.members([
+          "Milo",
+          "Otis",
+          "Garfield",
+          "Ralph",
+        ]);
       });
     });
 
-    describe('destructivelyPrependCat(name)', function () {
-      it('prepends a cat to the beginning of the cats array', function () {
-        destructivelyPrependCat("Bob");
+    describe("destructivelyPrependDriver(name)", function () {
+      it("prepends a driver to the beginning of the drivers array", function () {
+        destructivelyPrependDriver("Bob");
 
-        expect(cats).to.have.ordered.members(["Bob", "Milo", "Otis", "Garfield"]);
+        expect(drivers).to.have.ordered.members([
+          "Bob",
+          "Milo",
+          "Otis",
+          "Garfield",
+        ]);
       });
     });
 
-    describe('destructivelyRemoveLastCat()', function () {
-      it('removes the last cat from the cats array', function () {
-        destructivelyRemoveLastCat();
+    describe("destructivelyRemoveLastDriver()", function () {
+      it("removes the last driver from the drivers array", function () {
+        destructivelyRemoveLastDriver();
 
-        expect(cats).to.have.ordered.members(["Milo", "Otis"]).and.to.not.include('Garfield');
+        expect(drivers)
+          .to.have.ordered.members(["Milo", "Otis"])
+          .and.to.not.include("Garfield");
       });
     });
 
-    describe('destructivelyRemoveFirstCat()', function () {
-      it('removes the first cat from the cats array', function () {
-        destructivelyRemoveFirstCat();
+    describe("destructivelyRemoveFirstDriver()", function () {
+      it("removes the First driver from the drivers array", function () {
+        destructivelyRemoveFirstDriver();
 
-        expect(cats).to.have.ordered.members(["Otis", "Garfield"]).and.to.not.include('Milo');
+        expect(drivers)
+          .to.have.ordered.members(["Otis", "Garfield"])
+          .and.to.not.include("Milo");
       });
     });
 
-    describe('appendCat(name)', function () {
-      it('appends a cat to the cats array and returns a new array, leaving the cats array unchanged', function () {
-        expect(appendCat("Broom")).to.have.ordered.members(["Milo", "Otis", "Garfield", "Broom"]);
+    describe("appendDriver(name)", function () {
+      it("appends a driver to the drivers array and returns a new array, leaving the drivers array unchanged", function () {
+        expect(appendDriver("Broom")).to.have.ordered.members([
+          "Milo",
+          "Otis",
+          "Garfield",
+          "Broom",
+        ]);
 
-        expect(cats).to.have.ordered.members(["Milo", "Otis", "Garfield"]);
+        expect(drivers).to.have.ordered.members(["Milo", "Otis", "Garfield"]);
       });
     });
 
-    describe('prependCat(name)', function () {
-      it('prepends a cat to the cats array and returns a new array, leaving the cats array unchanged', function () {
-        expect(prependCat("Arnold")).to.have.ordered.members(["Arnold", "Milo", "Otis", "Garfield"]);
+    describe("prependDriver(name)", function () {
+      it("prepends a driver to the drivers array and returns a new array, leaving the drivers array unchanged", function () {
+        expect(prependDriver("Arnold")).to.have.ordered.members([
+          "Arnold",
+          "Milo",
+          "Otis",
+          "Garfield",
+        ]);
 
-        expect(cats).to.have.ordered.members(["Milo", "Otis", "Garfield"]);
+        expect(drivers).to.have.ordered.members(["Milo", "Otis", "Garfield"]);
       });
     });
 
-    describe('removeLastCat()', function () {
-      it('removes the last cat in the cats array and returns a new array, leaving the cats array unchanged', function () {
-        expect(removeLastCat()).to.have.ordered.members(["Milo", "Otis"]);
+    describe("removeLastDriver()", function () {
+      it("removes the last driver in the drivers array and returns a new array, leaving the drivers array unchanged", function () {
+        expect(removeLastDriver()).to.have.ordered.members(["Milo", "Otis"]);
 
-        expect(cats).to.have.ordered.members(["Milo", "Otis", "Garfield"]);
+        expect(drivers).to.have.ordered.members(["Milo", "Otis", "Garfield"]);
       });
     });
 
-    describe('removeFirstCat()', function () {
-      it('removes the first cat from the cats array and returns a new array, leaving the cats array unchanged', function () {
-        expect(removeFirstCat()).to.have.ordered.members(["Otis", "Garfield"]);
+    describe("removeFirstDriver()", function () {
+      it("removes the first driver from the drivers array and returns a new array, leaving the drivers array unchanged", function () {
+        expect(removeFirstDriver()).to.have.ordered.members([
+          "Otis",
+          "Garfield",
+        ]);
 
-        expect(cats).to.have.ordered.members(["Milo", "Otis", "Garfield"]);
+        expect(drivers).to.have.ordered.members(["Milo", "Otis", "Garfield"]);
       });
     });
   });
